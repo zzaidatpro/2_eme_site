@@ -10,23 +10,23 @@
 </head>
 
 <body>
-    <header id="header">
-        <h1>Green Forest</h1>
-        <!-- un menu de navigation style --> 
-         <nav class="navigation">
-               <ul>
-                   <li><a href="#accueil">Accueil</a></li>
-                   <li><a href="#produits">Produits</a></li>
-                   <li><a href="#services">Services</a></li>
-                   <li><a href="#contact">Contact</a></li>
-                  
-                   <li><a href="#aide">Aide</a></li> 
+    <header id="header" class="header">
+         <img src="logo_automatec_removebg.png" alt="Automatec" class="logo">
+         <h1>Automatec</h1>
+          <!-- un menu de navigation style -->
+        <nav class="navigation">
+           
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#produits">Produits</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#aide">Aide</a></li>
+                <li><button class="demande-devis"> Demander un devis </button></li>
+            </ul>
 
-                   <li><button class="demande-devis"> Demander un devis </button></li>
-               </ul>
-               
-            </nav>
-     
+        </nav>
+
     </header>
     <main>
         <section id="accueil" class="z-section">
@@ -126,99 +126,105 @@
             <h2>Foire aux Questions</h2>
             <div class="faq-item">
                 <h3>Quels types de systèmes de sécurité proposez-vous ?</h3>
-                <p>Nous proposons des systèmes de vidéosurveillance, d'alarme anti-intrusion, de contrôle d'accès et de sécurité incendie.</p>
+                <p>Nous proposons des systèmes de vidéosurveillance, d'alarme anti-intrusion, de contrôle d'accès et de
+                    sécurité incendie.</p>
             </div>
             <div class="faq-item">
                 <h3>Offrez-vous des services d'installation et de maintenance ?</h3>
-                <p>Oui, nous assurons l'installation complète de vos équipements ainsi que la maintenance et le support technique.</p>
+                <p>Oui, nous assurons l'installation complète de vos équipements ainsi que la maintenance et le support
+                    technique.</p>
             </div>
             <div class="faq-item">
                 <h3>Pouvez-vous personnaliser les solutions selon mes besoins ?</h3>
-                <p>Absolument, nous réalisons des audits pour concevoir des solutions sur-mesure adaptées à vos exigences spécifiques.</p>
+                <p>Absolument, nous réalisons des audits pour concevoir des solutions sur-mesure adaptées à vos
+                    exigences spécifiques.</p>
             </div>
 
-        <section id="estimateur" class="devis-section">
-            <h2>Estimez le coût de votre sécurité</h2>
+            <section id="estimateur" class="devis-section">
+                <h2>Estimez le coût de votre sécurité</h2>
 
-            <div class="devis-form-group">
-                <label for="service-type">Prestation principale :</label>
-                <select id="service-type" class="devis-select">
-                    <option value="0" data-prix="0">-- Choisissez un service --</option>
-                    <option value="videosurveillance" data-prix="">Vidéosurveillance HD (Forfait installation de base)
-                    </option>
-                    <option value="alarme" data-prix="">Alarme Anti-intrusion (Centrale + paramétrage)</option>
-                    <option value="controle-acces" data-prix="">Contrôle d'Accès biométrique/badge</option>
-                    <option value="incendie" data-prix="">Sécurité Incendie réglementaire</option>
-                </select>
-            </div>
-
-            <!-- AJOUT REQUIS POUR LE SCRIPT JS : Sélecteur de quantité globale d'équipements -->
-            <div class="devis-form-group">
-                <label>Quantité globale / Multiplicateur d'options : <span id="duree-val">1</span></label>
-                <input type="range" id="service-duree" min="1" max="20" value="1" style="width:100%;">
-            </div>
-
-            <div class="devis-form-group">
-                <label>Sélectionnez vos équipements additionnels :</label>
-                <div id="options-container">
-                    <p style="font-size: 13px; color: #94a3b8; font-style: italic;">Veuillez d'abord choisir un service
-                        principal.</p>
+                <div class="devis-form-group">
+                    <label for="service-type">Prestation principale :</label>
+                    <select id="service-type" class="devis-select">
+                        <option value="0" data-prix="0">-- Choisissez un service --</option>
+                        <option value="videosurveillance" data-prix="">Vidéosurveillance HD (Forfait installation de
+                            base)
+                        </option>
+                        <option value="alarme" data-prix="">Alarme Anti-intrusion (Centrale + paramétrage)</option>
+                        <option value="controle-acces" data-prix="">Contrôle d'Accès biométrique/badge</option>
+                        <option value="incendie" data-prix="">Sécurité Incendie réglementaire</option>
+                    </select>
                 </div>
-            </div>
 
-            <div class="devis-total-box">
-                <h3>Estimation de votre budget :</h3>
-                <p class="devis-prix-final"><span id="total-estimation">0</span> DA</p>
-                <span class="devis-precision">*Estimation de base en Dinars Algériens (DA) sous réserve d'audit
-                    technique</span>
-            </div>
-
-
-
-
-            
-            <!-- Bouton -->
-            <button class="btn-devis" id="openPopup">Voir votre estimation</button>
-
-            <!-- Popup -->
-            <div id="popup" class="popup hidden">
-                <div class="popup-content">
-                    <span id="closePopup" class="popup-close">&times;</span>
-                    <h3>Votre estimation détaillée</h3>
-                    <table class="devis-table" border="1" cellpadding="6" style="width:100%; border-collapse:collapse;">
-                        <thead>
-                            <tr>
-                                <th>Produit / Option</th>
-                                <th>Quantité</th>
-                                <th>Prix unitaire (DA)</th>
-                                <th>Sous-total (DA)</th>
-                            </tr>
-                        </thead>
-                        <tbody id="details-estimation-popup"></tbody>
-                    </table>
-                    <h3>Total : <span id="total-estimation-popup">0</span> DA</h3>
+                <!-- AJOUT REQUIS POUR LE SCRIPT JS : Sélecteur de quantité globale d'équipements -->
+                <div class="devis-form-group">
+                    <label>Quantité globale / Multiplicateur d'options : <span id="duree-val">1</span></label>
+                    <input type="range" id="service-duree" min="1" max="20" value="1" style="width:100%;">
                 </div>
-            </div>
 
-            <table class="devis-table">
-                <thead>
-                    <tr>
-                        <th>Produit / Option</th>
-                        <th>Quantité</th>
-                        <th>Prix unitaire (DA)</th>
-                        <th>Sous-total (DA)</th>
-                    </tr>
-                </thead>
-                <tbody id="details-estimation-popup"></tbody>
-            </table>
+                <div class="devis-form-group">
+                    <label>Sélectionnez vos équipements additionnels :</label>
+                    <div id="options-container">
+                        <p style="font-size: 13px; color: #94a3b8; font-style: italic;">Veuillez d'abord choisir un
+                            service
+                            principal.</p>
+                    </div>
+                </div>
+
+                <div class="devis-total-box">
+                    <h3>Estimation de votre budget :</h3>
+                    <p class="devis-prix-final"><span id="total-estimation">0</span> DA</p>
+                    <span class="devis-precision">*Estimation de base en Dinars Algériens (DA) sous réserve d'audit
+                        technique</span>
+                </div>
 
 
 
-        </section>
+
+
+                <!-- Bouton -->
+                <button class="btn-devis" id="openPopup">Voir votre estimation</button>
+
+                <!-- Popup -->
+                <div id="popup" class="popup hidden">
+                    <div class="popup-content">
+                        <span id="closePopup" class="popup-close">&times;</span>
+                        <h3>Votre estimation détaillée</h3>
+                        <table class="devis-table" border="1" cellpadding="6"
+                            style="width:100%; border-collapse:collapse;">
+                            <thead>
+                                <tr>
+                                    <th>Produit / Option</th>
+                                    <th>Quantité</th>
+                                    <th>Prix unitaire (DA)</th>
+                                    <th>Sous-total (DA)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="details-estimation-popup"></tbody>
+                        </table>
+                        <h3>Total : <span id="total-estimation-popup">0</span> DA</h3>
+                    </div>
+                </div>
+
+                <table class="devis-table">
+                    <thead>
+                        <tr>
+                            <th>Produit / Option</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire (DA)</th>
+                            <th>Sous-total (DA)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="details-estimation-popup"></tbody>
+                </table>
+
+
+
+            </section>
     </main>
 
 
-    
+
     <footer>
         <p>&copy; 2024 Green Forest. Tous droits réservés.</p>
         <p>Mentions légales | Politique de confidentialité</p>
